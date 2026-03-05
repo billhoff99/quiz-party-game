@@ -39,7 +39,6 @@ const storageSet = async (key, value) => {
     return false;
   }
 };
-  };
 
   // Load game data
   const loadGameData = async (gId) => {
