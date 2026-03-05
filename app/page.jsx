@@ -19,26 +19,26 @@ export default function QuizPartyGame() {
   const generateId = () => Math.random().toString(36).substr(2, 9);
 
   // Storage helpers with error handling
-const storageGet = async (key) => {
-  try {
-    const result = localStorage.getItem(key);
-    return result ? JSON.parse(result) : null;
-  } catch (err) {
-    console.log('Key not found or error:', key);
-    return null;
-  }
-};
+  const storageGet = async (key) => {
+    try {
+      const result = localStorage.getItem(key);
+      return result ? JSON.parse(result) : null;
+    } catch (err) {
+      console.log('Key not found or error:', key);
+      return null;
+    }
+  };
 
-const storageSet = async (key, value) => {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-    return true;
-  } catch (err) {
-    console.error('Storage error:', err);
-    setError('Failed to save data. Please try again.');
-    return false;
-  }
-};
+  const storageSet = async (key, value) => {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+      return true;
+    } catch (err) {
+      console.error('Storage error:', err);
+      setError('Failed to save data. Please try again.');
+      return false;
+    }
+  };
 
   // Load game data
   const loadGameData = async (gId) => {
