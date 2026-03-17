@@ -1,6 +1,4 @@
-// Simple in-memory store shared across all connected clients.
-// Data resets when the server restarts — fine for a party game session.
-const store = new Map();
+const store = global._quizStore ?? (global._quizStore = new Map());
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
