@@ -149,6 +149,7 @@ function ResultsView({ gameId }) {
 
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function QuizPartyGame() {
+  const [mounted, setMounted] = useState(false);
   const [view, setView] = useState('home');
   const [gameId, setGameId] = useState('');
   const [participantName, setParticipantName] = useState('');
@@ -159,6 +160,9 @@ export default function QuizPartyGame() {
   const [gameData, setGameData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   const generateId = () => Math.random().toString(36).substr(2, 9);
 
